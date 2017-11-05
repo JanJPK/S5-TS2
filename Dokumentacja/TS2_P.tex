@@ -1,0 +1,237 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+\documentclass{article}
+%\documentclass[tikz, border=2mm]{standalone}
+
+\usepackage{siunitx} % Provides the \SI{}{} and \si{} command for typesetting SI units
+\usepackage{graphicx} % Required for the inclusion of images
+\usepackage{natbib} % Required to change bibliography style to APA
+\usepackage{amsmath} % Required for some math elements 
+\setlength\parindent{12pt} % Removes all indentation from paragraphs
+%\usepackage{times} % Uncomment to use the Times New Roman font
+
+\usepackage[export]{adjustbox}
+
+\usepackage[utf8]{inputenc} % Język polski
+\usepackage{polski}
+\usepackage[polish]{babel}
+
+\usepackage[top=1in, bottom=1.25in, left=1.25in, right=1.25in]{geometry} % Marginesy
+\usepackage{listings} % Kod programu
+\usepackage{indentfirst} % Wcięcie przy pomocy \par
+\usepackage{multicol} % Kilka kolumn dla itemize
+\usepackage[table,xcdraw]{xcolor} % Dla tabel
+\usepackage{float} % Blokowanie tabeli przed przemieszczeniem
+%\usepackage{karnaugh-map} % Karnaugh
+
+%\renewcommand{\labelenumi}{\alph{enumi}.} % Zamienia litery w enumerate na a, b, c, ...
+
+
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\title{Technologie Sieciowe 2 - Projekt \\ \textit{Projekt sieci lokalnej dla biura projektowego}} % Title
+
+\author{Jan \textsc{Pajdak} \\ Wojciech \textsc{Słowiński}} % Author name
+
+\date{05.11.2017} % Date for the report
+%\date{\today} % Date for the report
+
+\begin{document}
+
+\maketitle % Insert the title, author and date
+
+\begin{center}
+\begin{tabular}{l r}
+%Data: <data> \\ % Date the experiment was performed
+%Prowadzący: & Mgr inż. Jan Paweł II % Instructor/supervisor
+Prowadzący: & Dr inż. Przemysław Ryba \\
+Termin zajęć: & Wtorek 9:15 TP \\
+Grupa: & 3 
+%Prowadzący: & Dr inż. Tomasz Babczyński
+%Prowadzący: & Dr inż. Tomasz Walkowiak
+%Prowadzący: & Dr inż. Jarosław Sugier
+%Prowadzący: & Mgr inż. Szymon Datko
+\end{tabular}
+\end{center}
+
+\tableofcontents % Spis treści
+
+% If you wish to include an abstract, uncomment the lines below
+% \begin{abstract}
+% Abstract text
+% \end{abstract}
+
+%----------------------------------------------------------------------------------------
+%	SECTION 0
+%----------------------------------------------------------------------------------------
+
+%\begin{multicols}{2}
+%	\begin{itemize}
+%		\item 
+%	\end{itemize}
+%\end{multicols}
+
+%\newpage
+%\section{Tytuł}} 
+%\subsection{Tytuł}
+%\par Tekst
+
+%\begin{itemize}
+%	\item\textit{Tekst} - Opis
+%\end{itemize}
+
+%\begin{enumerate}
+%	\item Opis
+%\end{enumerate}
+
+%\begin{center}
+%	\includegraphics[scale=0.6, center]{nazwa_pliku}
+%\end{center}
+
+%\begin{lstlisting}[basicstyle=\small]
+%	kod programu;
+%\end{lstlisting}
+
+%----------------------------------------------------------------------------------------
+%	SECTION 1
+%----------------------------------------------------------------------------------------
+\newpage
+\section{Wstęp}
+
+%----------------------------------------------------------------------------------------
+%	SECTION 2
+%----------------------------------------------------------------------------------------
+\newpage
+\section{Inwentaryzacja zasobów}
+
+\begin{table}[H]
+	\centering
+	\caption{Liczba użytkowników}
+	%\label{my-label}
+	\begin{tabular}{|l|l|l|l|l|l}
+		\hline
+		\textbf{Budynek}       & \multicolumn{2}{c|}{1} & \multicolumn{3}{c|}{2}            \\ \hline
+		\textbf{Piętro}        & 1          & 2         & 1  & 2  & \multicolumn{1}{l|}{3}  \\ \hline
+		\textbf{Konstruktorzy} & 41         & 51        & 12 & 50 & \multicolumn{1}{l|}{0}  \\ \hline
+		\textbf{Architekci}    & 48         & 54        & 43 & 20 & \multicolumn{1}{l|}{49} \\ \hline
+		\textbf{Projektanci}   & 33         & 17        & 18 & 2  & \multicolumn{1}{l|}{8}  \\ \hline
+		\textbf{Zarząd}        & 6          & 24        & 1  & 8  & \multicolumn{1}{l|}{12} \\ \hline
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Punkty dystrybucyjne}
+	%\label{my-label}
+	\begin{tabular}{|l|l|l|}
+		\hline
+		\multicolumn{1}{|c|}{\textbf{Oznaczenie}} & \multicolumn{1}{c|}{Lokalizacja} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Podłączone \\ punkty abonenckie\end{tabular}} \\ \hline
+		\textbf{MDF}                              & B2-P3                            & B2-P3                                                                                        \\ \hline
+		\textbf{IDF1}                             & B2-P2                            & B2-P1/2                                                                                      \\ \hline
+		\textbf{IDF2}                             & B1-P2                            & B1                                                                                           \\ \hline
+	\end{tabular}
+\end{table}
+
+%----------------------------------------------------------------------------------------
+%	SECTION 3
+%----------------------------------------------------------------------------------------
+\newpage
+\section{Analiza potrzeb użytkowników}
+
+\begin{table}[H]
+	\centering
+	\caption{Wymagania dot. przepływów między pracownikami a serwerami}
+	%\label{my-label}
+	\begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+		\hline
+		\multicolumn{1}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Grupa robocza\\ lub serwer\end{tabular}}} & \multicolumn{2}{c|}{Serwer 1} & \multicolumn{2}{c|}{Serwer 2} & \multicolumn{2}{c|}{Serwer 3} & \multicolumn{2}{c|}{Drukarka} \\ \hline
+		\textbf{Konstruktorzy}                                                                            & 500           & 650           & 0             & 0             & 250           & 950           & 10            & 100           \\ \hline
+		\textbf{Architekci}                                                                               & 150           & 500           & 650           & 150           & 500           & 500           & 10            & 110           \\ \hline
+		\textbf{Projektanci}                                                                              & 0             & 0             & 650           & 500           & 200           & 450           & 10            & 100           \\ \hline
+		\textbf{Zarząd}                                                                                   & 0             & 0             & 0             & 0             & 50            & 400           & 10            & 180           \\ \hline
+		\textbf{WiFi}                                                                                     & 100           & 150           & 100           & 250           & 200           & 150           & 10            & 120           \\ \hline
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Prognozowany ruch do Internetu z posiadanych przez firmę serwerów internetowych}
+	%\label{my-label}
+	\begin{tabular}{|l|c|c|c|}
+		\hline
+		\multicolumn{1}{|c|}{\textbf{Serwery internetowe}} & Do internetu & Z internetu & \begin{tabular}[c]{@{}c@{}}Liczba jednoczesnych\\ sesji\end{tabular} \\ \hline
+		\textbf{Serwer WWW}                                & 140          & 35          & 48                                                                   \\ \hline
+		\textbf{Serwer FTP}                                & 380          & 70          & 16                                                                   \\ \hline
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Wymagania dotyczące przepływów generowanych przez aplikacje użytkownika}
+	%\label{my-label}
+	\begin{tabular}{|l|c|c|c|c|c|c|c|c|}
+		\hline
+		\multicolumn{1}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Grupa robocza\\ lub aplikacja\end{tabular}}} & \multicolumn{2}{c|}{Przeglądarka} & \multicolumn{2}{c|}{Wideokonferencja} & \multicolumn{2}{c|}{VoIP} & \multicolumn{2}{c|}{Klient FTP} \\ \hline
+		\textbf{Konstruktorzy}                                                                               & 0               & 0               & 40                & 40                & 0           & 0           & 0              & 0              \\ \hline
+		\textbf{Architekci}                                                                                  & 0               & 0               & 0                 & 0                 & 20          & 20          & 57             & 12             \\ \hline
+		\textbf{Projektanci}                                                                                 & 67              & 10              & 0                 & 0                 & 20          & 20          & 72             & 10             \\ \hline
+		\textbf{Zarząd}                                                                                      & 66              & 10              & 40                & 40                & 20          & 20          & 63             & 20             \\ \hline
+		\textbf{WiFi}                                                                                        & 18              & 10              & 0                 & 0                 & 20          & 20          & 57             & 18             \\ \hline
+	\end{tabular}
+\end{table}
+
+%----------------------------------------------------------------------------------------
+%	SECTION 4
+%----------------------------------------------------------------------------------------
+\newpage
+\section{Założenia projektowe}
+
+%----------------------------------------------------------------------------------------
+%	SECTION 5
+%----------------------------------------------------------------------------------------
+\newpage
+\section{Projekt sieci}
+
+\subsection{Projekt logiczny sieci}
+
+\subsection{Wybór urządzeń sieciowych}
+
+\subsection{Projekt adresacji IP}
+
+\subsection{Projekt konfiguracji urządzeń}
+
+\subsection{Projekt podłączenia do Internetu}
+
+\subsection{Analiza bezpieczeństwa i niezawodności sieci}
+
+\subsection{Kosztorys}
+
+%----------------------------------------------------------------------------------------
+%	SECTION 6
+%----------------------------------------------------------------------------------------
+\newpage
+\section{Karty katalogowe proponowanych urządzeń}
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+%\newpage
+%\bibliographystyle{apalike}
+%\begin{thebibliography}{9}
+%
+%\bibitem{wikipediacluster} 
+%Wikipedia: Computer cluster,
+%\\\texttt{https://en.wikipedia.org/wiki/Computer\_cluster}
+%	
+%\bibitem{wikipediasieve} 
+%Wikipedia: Sieve of Erastosthenes,
+%\\\texttt{https://en.wikipedia.org/wiki/Sieve\_of\_Eratosthenes}
+%
+%\end{thebibliography}
+
+%----------------------------------------------------------------------------------------
+\end{document}
