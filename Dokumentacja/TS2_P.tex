@@ -99,12 +99,18 @@ Grupa: & 3
 %----------------------------------------------------------------------------------------
 %	SECTION 1
 %----------------------------------------------------------------------------------------
+% Scharakteryzować profil działania przedsiębiorstwa/instytucji. Opisać cel projektu.
+% Dodatkowe założenia i odpowiedzi na często zadawane pytania
+% - instalacje dostawców usług internetowych zostaną doprowadzone do MDF
+% - serwery mają zostać zainstalowane w szafach teleinformatycznych (decyzja w których należy do projektantów)
+% - każdy z serwerów wyposażony jest w dwa porty 1Gb/s (RJ-45)
 \newpage
 \section{Wstęp}
 
 %----------------------------------------------------------------------------------------
 %	SECTION 2
 %----------------------------------------------------------------------------------------
+% Zamieścić i omówić dane uzyskane od Prowadzącego.
 \newpage
 \section{Inwentaryzacja zasobów}
 
@@ -139,6 +145,9 @@ Grupa: & 3
 %----------------------------------------------------------------------------------------
 %	SECTION 3
 %----------------------------------------------------------------------------------------
+% Obliczyć (na podstawie danych od Prowadzącego) i przedstawić oszacowanie transferu danych w kluczowych punktach sieci: łączach szkieletowych 
+% (w tym pomiędzy budynkami), łączach do serwerów, łączu do Internetu (w obu kierunkach), itd. Należy zamieścić kompletne obliczenia (a nie same wyniki końcowe).
+% Przedstawić pozostałe wymagania, w tym dotyczące bezpieczeństwa i niezawodności sieci.
 \newpage
 \section{Analiza potrzeb użytkowników}
 
@@ -146,15 +155,16 @@ Grupa: & 3
 	\centering
 	\caption{Wymagania dot. przepływów między pracownikami a serwerami}
 	%\label{my-label}
-	\begin{tabular}{|l|l|l|l|l|l|l|l|l|}
-		\hline
-		\multicolumn{1}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Grupa robocza\\ lub serwer\end{tabular}}} & \multicolumn{2}{c|}{Serwer 1} & \multicolumn{2}{c|}{Serwer 2} & \multicolumn{2}{c|}{Serwer 3} & \multicolumn{2}{c|}{Drukarka} \\ \hline
-		\textbf{Konstruktorzy}                                                                            & 500           & 650           & 0             & 0             & 250           & 950           & 10            & 100           \\ \hline
-		\textbf{Architekci}                                                                               & 150           & 500           & 650           & 150           & 500           & 500           & 10            & 110           \\ \hline
-		\textbf{Projektanci}                                                                              & 0             & 0             & 650           & 500           & 200           & 450           & 10            & 100           \\ \hline
-		\textbf{Zarząd}                                                                                   & 0             & 0             & 0             & 0             & 50            & 400           & 10            & 180           \\ \hline
-		\textbf{WiFi}                                                                                     & 100           & 150           & 100           & 250           & 200           & 150           & 10            & 120           \\ \hline
-	\end{tabular}
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|}
+	\hline
+	\multicolumn{1}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Grupa robocza\\ lub serwer\end{tabular}}} & \multicolumn{2}{c|}{Serwer 1} & \multicolumn{2}{c|}{Serwer 2} & \multicolumn{2}{c|}{Serwer 3} & \multicolumn{2}{c|}{Drukarka} \\ \hline
+	\textbf{Prędkość {[}kb/s{]}}                                                                      & Down           & Up           & Down           & Up           & Down           & Up           & Down           & Up           \\ \hline
+	\textbf{Konstruktorzy}                                                                            & 500            & 650          & 0              & 0            & 250            & 950          & 10             & 100          \\ \hline
+	\textbf{Architekci}                                                                               & 150            & 500          & 650            & 150          & 500            & 500          & 10             & 110          \\ \hline
+	\textbf{Projektanci}                                                                              & 0              & 0            & 650            & 500          & 200            & 450          & 10             & 100          \\ \hline
+	\textbf{Zarząd}                                                                                   & 0              & 0            & 0              & 0            & 50             & 400          & 10             & 180          \\ \hline
+	\textbf{WiFi}                                                                                     & 100            & 150          & 100            & 250          & 200            & 150          & 10             & 120          \\ \hline
+\end{tabular}
 \end{table}
 
 \begin{table}[H]
@@ -173,20 +183,27 @@ Grupa: & 3
 	\centering
 	\caption{Wymagania dotyczące przepływów generowanych przez aplikacje użytkownika}
 	%\label{my-label}
-	\begin{tabular}{|l|c|c|c|c|c|c|c|c|}
-		\hline
-		\multicolumn{1}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Grupa robocza\\ lub aplikacja\end{tabular}}} & \multicolumn{2}{c|}{Przeglądarka} & \multicolumn{2}{c|}{Wideokonferencja} & \multicolumn{2}{c|}{VoIP} & \multicolumn{2}{c|}{Klient FTP} \\ \hline
-		\textbf{Konstruktorzy}                                                                               & 0               & 0               & 40                & 40                & 0           & 0           & 0              & 0              \\ \hline
-		\textbf{Architekci}                                                                                  & 0               & 0               & 0                 & 0                 & 20          & 20          & 57             & 12             \\ \hline
-		\textbf{Projektanci}                                                                                 & 67              & 10              & 0                 & 0                 & 20          & 20          & 72             & 10             \\ \hline
-		\textbf{Zarząd}                                                                                      & 66              & 10              & 40                & 40                & 20          & 20          & 63             & 20             \\ \hline
-		\textbf{WiFi}                                                                                        & 18              & 10              & 0                 & 0                 & 20          & 20          & 57             & 18             \\ \hline
-	\end{tabular}
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|}
+	\hline
+	\multicolumn{1}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Grupa robocza\\ lub serwer\end{tabular}}} & \multicolumn{2}{c|}{Przeglądarka} & \multicolumn{2}{c|}{Wideokonferencja} & \multicolumn{2}{c|}{VoIP} & \multicolumn{2}{c|}{Klient FTP} \\ \hline
+	\textbf{Prędkość {[}kb/s{]}}                                                                      & Down             & Up             & Down               & Up               & Down         & Up         & Down            & Up            \\ \hline
+	\textbf{Konstruktorzy}                                                                            & 0                & 0              & 40                 & 40               & 0            & 0          & 0               & 0             \\ \hline
+	\textbf{Architekci}                                                                               & 0                & 0              & 0                  & 0                & 20           & 20         & 57              & 12            \\ \hline
+	\textbf{Projektanci}                                                                              & 67               & 10             & 0                  & 0                & 20           & 20         & 72              & 10            \\ \hline
+	\textbf{Zarząd}                                                                                   & 66               & 10             & 40                 & 40               & 20           & 20         & 63              & 20            \\ \hline
+	\textbf{WiFi}                                                                                     & 18               & 10             & 0                  & 0                & 20           & 20         & 57              & 18            \\ \hline
+\end{tabular}
 \end{table}
 
 %----------------------------------------------------------------------------------------
 %	SECTION 4
 %----------------------------------------------------------------------------------------
+% Przedstawić w punktach podstawowe założenia dotyczące projektowanej sieci wynikające z inwentaryzacji oraz analizy potrzeb użytkownika 
+% (przestawiane do akceptacji firmie zlecającej projekt w celu wstępnej akceptacji), w tym:
+% - rodzaj technologii i przepustowość w sieci LAN,
+% - rodzaj i przepustowość (w tym gwarantowana) łącza do Internetu,
+% - zabezpieczenia sieci,
+% - itd.
 \newpage
 \section{Założenia projektowe}
 
