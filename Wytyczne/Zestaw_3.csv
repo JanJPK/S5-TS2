@@ -1,0 +1,54 @@
+
+Przedsiêbiorstwo/instytucja:;;Biuro_projektowe
+
+;Liczba u¿ytkowników (komputerów)
+;Budynek 1;;Budynek 2
+Grupa robocza;Piêtro 1;Piêtro 2;Piêtro 1;Piêtro 2;Piêtro 3;
+Konstruktorzy;41;51;12;50;0;
+Architekci;48;54;43;20;49;
+Projektanci;33;17;18;2;8;
+Zarz¹d;6;24;1;8;12;
+;Liczba drukarek
+;2;1;3;2;2;
+;Liczba punktów dostêpowych WiFi
+;3;0;0;0;2;
+;Liczba urz¹dzeñ bezprzewodowych
+;17;0;0;0;4;
+
+Odleg³oœc pomiêdzy budynkami:;;;379m (w³aœciwie nie jest to potrzebne w projekcie)
+£¹cze pomiêdzy budynkami:;;;Optyczne wielomodowe
+
+Punkty dystrybucyjne: 
+Oznaczenie;Lokalizacja;Pod³¹czone punkty abonenckie
+MDF;Bud. 2, Piêtro 3;Bud. 2, Piêtro 3,;
+IDF1;Bud. 2, Piêtro 2;Bud. 2, Piêtro 2,1,;
+IDF2;Bud. 1, Piêtro 2;Bud. 1;
+
+
+Wymagania dot. przep³ywów pomiêdzy pracownikami a serwerami lokalnymi (transfer przypadaj¹cy na jednego u¿ytkownika) - dotyczy równie¿ u¿ytkowników WiFi
+
+;Transfer do serwerów lokalnych i drukarek (down \ up) [kb/s]
+Grupa rob. / Serwer;Serwer1;Serwer2;Serwer3;Drukarka
+Konstruktorzy;500\650;0\0;250\950;10\100;
+Architekci;150\500;650\150;500\500;10\110;
+Projektanci;0\0;650\500;200\450;10\100;
+Zarz¹d;0\0;0\0;50\400;10\180;
+WiFi;100\150;100\250;200\150;10\120;
+
+Prognozowany ruch do Internetu z posiadanych przez firmê serwerów internetowych
+
+;Transfer do\z Internetu na jedn¹ sesjê (internautê) [kb/s] 
+Serwery internetowe;Do Internetu;Z Internetu;Liczba jednoczesnych sesji
+Serwer WWW;140;35;48
+Serwer FTP;380;70;16
+
+
+Wymagania dot. przep³ywów generowanych przez aplikacje u¿ytkownika z\do internetu  (transfer przypadaj¹cy na jednego u¿ytkownika)  - dotyczy równie¿ u¿ytkowników WiFi
+
+;Transfer z/do Internetu (down \ up) [kb/s]
+Grupa rob./Aplikacja;Przegl¹darka;Wideokonferencja;VoIP;Klient_FTP;
+Konstruktorzy;0\0;40\40;0\0;0\0;
+Architekci;0\0;0\0;20\20;57\12;
+Projektanci;67\10;0\0;20\20;72\10;
+Zarz¹d;66\10;40\40;20\20;63\20;
+WiFi;78\10;0\0;20\20;57\18;
