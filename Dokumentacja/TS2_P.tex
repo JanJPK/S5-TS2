@@ -367,7 +367,7 @@ Grupa: & 3
 \subsection{Projekt logiczny sieci}
 \par Projekt nie określa konkretnego połączenia urządzeń takich jak drukarki do danych switchy - zostanie to ustalone w trakcie montażu.
 \begin{center}
-	\includegraphics[scale=0.55, center]{ts2_diagram}
+	\includegraphics[scale=0.55, center]{ts2_diagram_b}
 \end{center}
 \newpage
 \subsection{Wybór urządzeń sieciowych}
@@ -416,19 +416,78 @@ Grupa: & 3
 		\textbf{Drukarki}       & 192.168.6.0             & 255.255.255.0 (/24) & 192.168.6.1 - 192.168.6.11  \\ \hline
 	\end{tabular}
 \end{table}
-%\subsection{Projekt konfiguracji urządzeń}
-%
-%\subsection{Projekt podłączenia do Internetu}
-%
-%\subsection{Analiza bezpieczeństwa i niezawodności sieci}
-%
-%\subsection{Kosztorys}
+
+\newpage
+\subsection{Projekt konfiguracji urządzeń}
+\begin{table}[H]
+	\centering
+	\caption{My caption}
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		\multicolumn{5}{|c|}{\textbf{Router}}                                                                  \\ \hline
+		\textbf{Urządzenie}      & \textbf{Port}  & \textbf{Adres sieci} & \textbf{Maska}     & \textbf{Adres} \\ \hline
+		\textbf{Serwer FTP}      & interface g0/0 & 45.0.0.0             & 255.255.0.0 (/16)  & 45.0.1.1       \\ \hline
+		\textbf{Sieć wewnętrzna} & interface g0/1 & 192.168.0.0          & 255.255.255.0(/24) & 192.168.0.2    \\ \hline
+		\textbf{Serwer WWW}      & interface g0/2 & 46.0.0.0             & 255.255.0.0 (/16)  & 46.0.1.1       \\ \hline
+		\textbf{Internet}        & interface g0/3 & 47.0.0.0             & 255.255.0.0 (/16)  & 47.0.1.1       \\ \hline
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{My caption}
+	\begin{tabular}{cccc}
+		\hline
+		\multicolumn{1}{|c|}{\textbf{VLAN1}}                 & \multicolumn{1}{c|}{\multirow{2}{*}{192.168.1.0}} & \multicolumn{1}{c|}{255.255.255.0 (/24)}     & \multicolumn{1}{c|}{192.168.1.1 - 192.168.1.178} \\ \cline{1-1} \cline{3-4} 
+		\multicolumn{1}{|c|}{\textbf{interface vlan1}}       & \multicolumn{1}{c|}{}                             & \multicolumn{1}{c|}{255.255.255.0 (/24)}     & \multicolumn{1}{c|}{192.168.1.254}               \\ \hline
+		&                                                   &                                              &                                                  \\ \hline
+		\multicolumn{1}{|c|}{\textbf{VLAN2}}                 & \multicolumn{1}{c|}{\multirow{2}{*}{192.168.2.0}} & \multicolumn{1}{c|}{255.255.255.0 (/24)}     & \multicolumn{1}{c|}{192.168.2.1 - 192.168.2.247} \\ \cline{1-1} \cline{3-4} 
+		\multicolumn{1}{|c|}{\textbf{interface vlan2}}       & \multicolumn{1}{c|}{}                             & \multicolumn{1}{c|}{255.255.255.0 (/24)}     & \multicolumn{1}{c|}{192.168.2.254}               \\ \hline
+		&                                                   &                                              &                                                  \\ \hline
+		\multicolumn{1}{|c|}{\textbf{VLAN3}}                 & \multicolumn{1}{c|}{\multirow{2}{*}{192.168.3.0}} & \multicolumn{1}{c|}{255.255.255.0 (/24)}     & \multicolumn{1}{c|}{192.168.3.1 - 192.168.3.90}  \\ \cline{1-1} \cline{3-4} 
+		\multicolumn{1}{|c|}{\textbf{interface vlan3}}       & \multicolumn{1}{c|}{}                             & \multicolumn{1}{c|}{255.255.255.0 (/24)}     & \multicolumn{1}{c|}{192.168.3.254}               \\ \hline
+		&                                                   &                                              &                                                  \\ \hline
+		\multicolumn{1}{|c|}{\textbf{VLAN4}}                 & \multicolumn{1}{c|}{\multirow{2}{*}{192.168.4.0}} & \multicolumn{1}{c|}{255.255.255.0 (/24)}     & \multicolumn{1}{c|}{192.168.4.1 - 192.168.4.59}  \\ \cline{1-1} \cline{3-4} 
+		\multicolumn{1}{|c|}{\textbf{interface vlan4}}       & \multicolumn{1}{c|}{}                             & \multicolumn{1}{c|}{255.255.255.0 (/24)}     & \multicolumn{1}{c|}{192.168.4.254}               \\ \hline
+		&                                                   &                                              &                                                  \\ \hline
+		\multicolumn{1}{|c|}{\textbf{VLAN5 (serwery wewn.)}} & \multicolumn{1}{c|}{\multirow{2}{*}{192.168.5.0}} & \multicolumn{1}{c|}{255.255.255.0 (/24)}     & \multicolumn{1}{c|}{192.168.5.1 - 192.168.5.3}   \\ \cline{1-1} \cline{3-4} 
+		\multicolumn{1}{|c|}{\textbf{interflace vlan5}}      & \multicolumn{1}{c|}{}                             & \multicolumn{1}{c|}{255.255.255.0 (/24)}     & \multicolumn{1}{c|}{192.168.5.254}               \\ \hline
+		&                                                   &                                              &                                                  \\ \hline
+		\multicolumn{1}{|c|}{\textbf{VLAN6 (drukarki)}}      & \multicolumn{1}{c|}{\multirow{2}{*}{192.168.6.0}} & \multicolumn{1}{c|}{255.255.255.0 (/24)}     & \multicolumn{1}{c|}{192.168.6.1 - 192.168.6.11}  \\ \cline{1-1} \cline{3-4} 
+		\multicolumn{1}{|c|}{\textbf{interface vlan6}}       & \multicolumn{1}{c|}{}                             & \multicolumn{1}{c|}{255.255.255.0 (/24)}     & \multicolumn{1}{c|}{192.168.6.254}               \\ \hline
+		&                                                   &                                              &                                                  \\ \hline
+		\multicolumn{1}{|c|}{\textbf{Urządzenie}}            & \multicolumn{1}{c|}{\textbf{Adres}}               & \multicolumn{1}{c|}{\textbf{Maska podsieci}} & \multicolumn{1}{c|}{\textbf{Brama domyślna}}     \\ \hline
+		\multicolumn{1}{|c|}{\textbf{Serwer FTP}}            & \multicolumn{1}{c|}{45.0.1.2}                     & \multicolumn{1}{c|}{255.255.0.0 (/16)}       & \multicolumn{1}{c|}{45.0.1.1}                    \\ \hline
+		\multicolumn{1}{|c|}{\textbf{Serwer WWW}}            & \multicolumn{1}{c|}{46.0.1.2}                     & \multicolumn{1}{c|}{255.255.0.0 (/16)}       & \multicolumn{1}{c|}{46.0.1.1}                    \\ \hline
+		\multicolumn{1}{|c|}{\textbf{S1}}                    & \multicolumn{1}{c|}{192.168.5.1}                  & \multicolumn{1}{c|}{255.255.255.0 (/24)}     & \multicolumn{1}{c|}{192.168.5.254}               \\ \hline
+		\multicolumn{1}{|c|}{\textbf{S2}}                    & \multicolumn{1}{c|}{192.168.5.2}                  & \multicolumn{1}{c|}{255.255.255.0 (/24)}     & \multicolumn{1}{c|}{192.168.5.254}               \\ \hline
+		\multicolumn{1}{|c|}{\textbf{S3}}                    & \multicolumn{1}{c|}{192.168.5.3}             \textsl{}     & \multicolumn{1}{c|}{255.255.255.0 (/24)}     & \multicolumn{1}{c|}{192.168.5.254}               \\ \hline
+	\end{tabular}
+\end{table}
+
+\newpage
+\subsection{Projekt podłączenia do Internetu}
+
+\newpage
+\subsection{Analiza bezpieczeństwa i niezawodności sieci}
+\subsubsection{Ochrona przed wirusami}
+\par Jak wiadomo pracownicy mogą być ofiaramy przeróżnych ataków, niekoniecznie przez internet. Źródłem zagrożenia może być chociażby pendrive z wirusem. Aby ustrzec
+firmę przed działaniem niechcianego oprogramowania, zdecydowaliśmy się na zakup licencji antywirusa F-Secure. Możliwości finansowe firmy pozwalają na zakup takiej licencji, 
+a według badań przeprowadzonych przez niezależne ośrodki badawcze program radzi sobie bardzo dobrze z większością zagrożeń. Jest on również małym obciążeniem dla procesora,
+a jego częste aktualizacje powodują zwiększenie skutecznośći ochrony.
+\subsubsection{Internet}
+\par Router łączący sieć z internetem posiada wbudowany firewall, aby chronić sieć wewnętrzną przed atakami z zewnątrz. W dodatku program antywirusowy F-Secure posiada opcje firewalla oraz skanowania przychodzących maili. Potrafi on ostrzec przed zagrożeniem znajdującym się w załączniku, lub w linku przesłanym w wiadomości. W ten sposób nawet przy dużej nieuwadze pracownik asystem nie jest od razu narażony na atak.
+\subsubsection{Awaria zasilania}
+\par W razie awarii zasilania serwery zaopatrzone są w UPS-y oraz w planach jest zakup własnego agregatu prądotwórczego. W takiej sytuacji firma jest w stanie pracować bez problemów
+przez pewien okres czasu aż do naprawy zasilania.
+
+\subsection{Kosztorys}
 
 %----------------------------------------------------------------------------------------
 %	SECTION 6
 %----------------------------------------------------------------------------------------
-%\newpage
-%\section{Karty katalogowe proponowanych urządzeń}
+\newpage
+\section{Karty katalogowe proponowanych urządzeń}
 
 %----------------------------------------------------------------------------------------
 %	BIBLIOGRAPHY

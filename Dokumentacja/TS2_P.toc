@@ -15,3 +15,11 @@
 \contentsline {subsection}{\numberline {5.1}Projekt logiczny sieci}{9}
 \contentsline {subsection}{\numberline {5.2}Wyb\IeC {\'o}r urz\IeC {\k a}dze\IeC {\'n} sieciowych}{10}
 \contentsline {subsection}{\numberline {5.3}Projekt adresacji IP}{10}
+\contentsline {subsection}{\numberline {5.4}Projekt konfiguracji urz\IeC {\k a}dze\IeC {\'n}}{11}
+\contentsline {subsection}{\numberline {5.5}Projekt pod\IeC {\l }\IeC {\k a}czenia do Internetu}{12}
+\contentsline {subsection}{\numberline {5.6}Analiza bezpiecze\IeC {\'n}stwa i niezawodno\IeC {\'s}ci sieci}{12}
+\contentsline {subsubsection}{\numberline {5.6.1}Ochrona przed wirusami}{12}
+\contentsline {subsubsection}{\numberline {5.6.2}Internet}{12}
+\contentsline {subsubsection}{\numberline {5.6.3}Awaria zasilania}{12}
+\contentsline {subsection}{\numberline {5.7}Kosztorys}{12}
+\contentsline {section}{\numberline {6}Karty katalogowe proponowanych urz\IeC {\k a}dze\IeC {\'n}}{13}
