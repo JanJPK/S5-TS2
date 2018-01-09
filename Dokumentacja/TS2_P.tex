@@ -28,7 +28,7 @@
 %\renewcommand{\labelenumi}{\alph{enumi}.} % Zamienia litery w enumerate na a, b, c, ...
 
 
-
+\usepackage{multirow}
 %----------------------------------------------------------------------------------------
 %	DOCUMENT INFORMATION
 %----------------------------------------------------------------------------------------
@@ -351,7 +351,6 @@ Grupa: & 3
 	\item Serwery zostaną zainstalowane w B2-P3, będą również dodatkowo zabezpieczone fizycznym firewallem.
 	\item Każde piętro będzie posiadało:
 	\begin{itemize}
-		\item 1 przełącznik zarządzany
 		\item N standardowych przełączników, gdzie N zostanie określone w zależności od użytkowników sieci na danym piętrze
 	\end{itemize}
 	\item W B1-P1 zostanie umieszczony wysokiej klasy punkt dostępowy by zapewnić odpowiednie parametry sieci dla użytkowników WiFi. Urządzenie w B2-P3 będzie pracowało z mniejszą ilością użytkowników więc zostanie tam zainstalowany tańszy model.
@@ -362,15 +361,61 @@ Grupa: & 3
 %----------------------------------------------------------------------------------------
 %	SECTION 5
 %----------------------------------------------------------------------------------------
-%\newpage
-%\section{Projekt sieci}
-%
-%\subsection{Projekt logiczny sieci}
-%
-%\subsection{Wybór urządzeń sieciowych}
-%
-%\subsection{Projekt adresacji IP}
-%
+\newpage
+\section{Projekt sieci}
+
+\subsection{Projekt logiczny sieci}
+\par Projekt nie określa konkretnego połączenia urządzeń takich jak drukarki do danych switchy - zostanie to ustalone w trakcie montażu.
+\begin{center}
+	\includegraphics[scale=0.55, center]{ts2_diagram}
+\end{center}
+\newpage
+\subsection{Wybór urządzeń sieciowych}
+\par Ze względu na wykwalifikowaną kadrę montażystów posiadających prestiżowy certyfikat Cisco Networking Academy urządzenia tej firmy zostały wybrane. Firma Cisco znana jest również z wysokiej jakości oraz dobrych warunków gwarancji.
+\par Wybrany model punktu dostepowego to Cisco WAP371-E-K9.
+\begin{table}[H]
+	\centering
+	\caption{My caption}
+	\begin{tabular}{|c|c|c|c|c|c|c|}
+		\hline
+		\textbf{Budynek}    & \textbf{Piętro}    & \textbf{Oznaczenie}             & \textbf{Urządzenie}                        & \textbf{GE}            & \textbf{FE}             & \textbf{Rodzaj}            \\ \hline
+		\multirow{8}{*}{1}  & \multirow{5}{*}{2} & SW01-B1-P2                      & Cisco 50P SLM248GT-EU                      & -                      & 48                      & \multirow{4}{*}{Switch L2} \\ \cline{3-6}
+		&                    & SW02-B1-P2                      & Cisco 50P SLM248GT-EU                      & -                      & 48                      &                            \\ \cline{3-6}
+		&                    & SW03-B1-P2                      & Cisco 26P SG200-26                     	& -                      & 24                      &                            \\ \cline{3-6}
+		&                    & SW03-B1-P2                      & Cisco 26P SG200-26                      	& -                      & 24                      &                            \\ \cline{3-7} 
+		&                    & SW04-B1-P2                      & Cisco 10P SRW2008-K9-G5                    & 8                      & 0                       & Switch L3                  \\ \cline{2-7} 
+		& \multirow{3}{*}{1} & SW05-B1-P1                      & Cisco 50P SLM248GT-EU                      & -                      & 48                      & \multirow{3}{*}{Switch L2} \\ \cline{3-6}
+		&                    & SW06-B1-P1                      & Cisco 50P SLM248GT-EU                      & -                      & 48                      &                            \\ \cline{3-6}
+		&                    & SW07-B1-P1                      & Cisco 50P SLM248GT-EU                      & -                      & 24                      &                            \\ \hline
+		\multirow{10}{*}{2} & \multirow{4}{*}{3} & SW08-B2-P3                      & Cisco 50P SLM248GT-EU                      & -                      & 48                      & \multirow{2}{*}{Switch L2} \\ \cline{3-6}
+		&                    & SW09-B2-P3                      & Cisco 26P SG200-26                      	& -                      & 24                      &                            \\ \cline{3-7} 
+		&                    & SW10-B2-P3                      & Cisco 20P SRW2016-K9-EU                    & 18                     & -                       & Switch L3                  \\ \cline{3-7} 
+		&                    & R0                              & Cisco RV130W-E-K9-G5                       & 4                      & -                       & Router                     \\ \cline{2-7} 
+		& \multirow{3}{*}{2} & SW11-B2-P2                      & Cisco 50P SLM248GT-EU                      & -                      & 48                      & \multirow{3}{*}{Switch L2} \\ \cline{3-6}
+		&                    & SW12-B2-P2                      & Cisco 26P SG200-26                      	& -                      & 24                      &                            \\ \cline{3-6}
+		&                    & SW13-B2-P2                      & Cisco 26P SG200-26                      	& -                      & 24                      &                            \\ \cline{2-7} 
+		& \multirow{3}{*}{1} & SW14-B2-P1                      & Cisco 26P SG200-26U                      	& -                      & 24                      & \multirow{3}{*}{Switch L2} \\ \cline{3-6}
+		&                    & SW15-B2-P1 						& Cisco 26P SG200-26 						& - & 24 &                            \\ \cline{3-6}
+		&                    & SW16-B2-P   						& Cisco 26P SG200-26 & - & 24 &                            \\ \hline
+	\end{tabular}
+\end{table}
+
+\subsection{Projekt adresacji IP}
+\begin{table}[H]
+	\centering
+	\caption{My caption}
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		& \textbf{Adres podsieci} & \textbf{Maska}      & \textbf{Używane adresy}     \\ \hline
+		\textbf{Brama domyślna} & 192.168.0.0             & 255.255.255.0 (/24) & 192.168.0.1                 \\ \hline
+		\textbf{VLAN1 (Konstruktorzy)}          & 192.168.1.0             & 255.255.255.0 (/24) & 192.168.1.1 - 192.168.1.178 \\ \hline
+		\textbf{VLAN2 (Projektanci)}          & 192.168.2.0             & 255.255.255.0 (/24) & 192.168.2.1 - 192.168.2.247 \\ \hline
+		\textbf{VLAN3 (Architekci)}          & 192.168.3.0             & 255.255.255.0 (/24) & 192.168.3.1 - 192.168.3.90  \\ \hline
+		\textbf{VLAN4 (Zarząd)}          & 192.168.4.0             & 255.255.255.0 (/24) & 192.168.4.1 - 192.168.4.59  \\ \hline
+		\textbf{Serwery}        & 192.168.5.0             & 255.255.255.0 (/24) & 192.168.5.1 - 192.168.5.3   \\ \hline
+		\textbf{Drukarki}       & 192.168.6.0             & 255.255.255.0 (/24) & 192.168.6.1 - 192.168.6.11  \\ \hline
+	\end{tabular}
+\end{table}
 %\subsection{Projekt konfiguracji urządzeń}
 %
 %\subsection{Projekt podłączenia do Internetu}
